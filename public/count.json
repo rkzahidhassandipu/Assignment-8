@@ -1,0 +1,26 @@
+[
+  {
+    "start": 0,
+    "end": 1000,
+    "image": "https://i.postimg.cc/0jctL2Ls/man-22-256.png",
+    "subtitle": "Total Lawyer"
+  },
+  {
+    "start": 75,
+    "end": 1250,
+    "image": "https://i.postimg.cc/t4Lr0cmY/vecteezy-5-star-rating-review-star-png-transparent-9663927.png",
+    "subtitle": "Total Reviews"
+  },
+  {
+    "start": 150,
+    "end": 1500,
+    "image": "https://i.postimg.cc/BZgw8MtV/pngtree-judge-gavel-verdict-png-image-10534341.png",
+    "subtitle": "Cases Initiated"
+  },
+  {
+    "start": 225,
+    "end": 1750,
+    "image": "https://i.postimg.cc/TwjNJc0h/people-friends-cartoon-young-couple-cartoon-18591-588-removebg-preview.png",
+    "subtitle": "Total Stuffs"
+  }
+]
