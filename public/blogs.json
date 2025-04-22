@@ -1,0 +1,33 @@
+[
+    {
+      "id": 1,
+      "questions": "What is useState and how does it work in React?",
+      "Answer": "useState is a Hook in React that allows you to add state to functional components. It returns an array with two elements: the current state value and a function to update it. When you call the setter function returned by useState, React re-renders the component with the updated state value.",
+      "date": "2025-04-23"
+    },
+    {
+      "id": 2,
+      "questions": "What is the purpose of useEffect in React?",
+      "Answer": "useEffect is a Hook that allows you to perform side effects in functional components, such as fetching data, subscribing to events, or manually changing the DOM. It runs after the component renders and can be configured to run once on mount or on specific state/props changes.",
+      "date": "2025-04-23"
+    },
+    {
+      "id": 3,
+      "questions": "What is a custom hook in React and when should you use one?",
+      "Answer": "A custom hook is a JavaScript function that allows you to reuse logic across multiple components in React. It is a convention to start the function name with 'use'. You should use a custom hook when you need to share stateful logic (such as event listeners, timers, or form validation) between multiple components without duplicating code.",
+      "date": "2025-04-23"
+    },
+    {
+      "id": 4,
+      "questions": "Difference between controlled and uncontrolled components. Which one is better?",
+      "Answer": "A controlled component is an input element whose value is controlled by React state, meaning React manages the value of the form element. An uncontrolled component stores its value in the DOM itself and doesn't use React state for value management. Controlled components are generally preferred because they provide more control and can trigger re-renders when the value changes, making them more predictable.",
+      "date": "2025-04-23"
+    },
+    {
+      "id": 5,
+      "questions": "Tell us something about useFormStatus() in React.",
+      "Answer": "useFormStatus is a React Hook used to track the status of a form submission. It provides information like whether the form is submitting, whether the submission was successful, or whether there was an error. It is useful for handling form states like loading indicators, success messages, or error handling without manually managing each of these states.",
+      "date": "2025-04-23"
+    }
+  ]
+  

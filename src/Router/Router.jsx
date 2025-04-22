@@ -6,7 +6,8 @@ import App from "../App";
 import MyBooking from "../Pages/MyBooking/MyBooking";
 import Blogs from "../Pages/Blogs/Blogs";
 import ContactUs from "../Pages/ContactUs/ContactUs";
-import NotFound from "../Pages/NotFound/NotFound";
+import NotFound from "../Components/NotFound/NotFound";
+import SingleLaw from "../Components/SingleLawyar/SingleLawyer/SingleLaw";
 
 export const router =  createBrowserRouter([
     {
@@ -14,14 +15,22 @@ export const router =  createBrowserRouter([
       element: <App />,
       errorElement: <NotFound />,
       children: [
-        { index: true, Component: Home },
+        { index: true,
+          loader: () => fetch('/LawExpert.json'),
+          Component: Home },
         {
           path: "mybookings",
+          loader: () => fetch('/LawExpert.json'),
           Component: MyBooking
         },
         {
           path: "blogs",
           Component: Blogs
+        },
+        {
+          path: "/singleLawyar/:id",
+          loader: () => fetch('/LawExpert.json'),
+          Component: SingleLaw
         },
         {
           path: "contactus",
