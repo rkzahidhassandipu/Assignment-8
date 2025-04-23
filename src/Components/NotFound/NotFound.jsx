@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
 import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
 
 const NotFound = () => {
   return (
