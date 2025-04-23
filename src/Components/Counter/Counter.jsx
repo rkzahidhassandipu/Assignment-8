@@ -2,7 +2,7 @@ import React, { Suspense, use } from 'react'
 import Loader from '../Loading/Loader'
 import Count from './Count'
 
-const countData = fetch("count.json").then(data => data.json())
+const countData = fetch("/count.json").then(data => data.json())
 
 
 const Counter = () => {
