@@ -6,9 +6,9 @@ const Count = ({ count }) => {
   const { start, end, image, subtitle } = count;
   return (
     <div className="border-gray-200 bg-gray-100 border rounded-2xl px-10 py-5">
-      <img className="w-20 flex flex-1" src={image} alt="" />
+      <img className="w-20 h-16 flex flex-1" src={image} alt="" />
       <div className="flex items-center py-3">
-        <CountUp className="text-5xl font-bold" start={start} end={`${end} `}>
+        <CountUp className="text-5xl font-bold" start={start} end={`${end}`} duration={10}>
           +
         </CountUp>
         <FaPlus />
