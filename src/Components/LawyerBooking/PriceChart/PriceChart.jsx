@@ -41,25 +41,33 @@ const renderCustomAxisTick = ({ x, y, payload }) => {
   );
 };
 
+const getRandomColor = () =>
+  `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, "0")}`;
+
 const PriceChart = ({ lawyerList }) => {
   // Wrap the single object into an array for Recharts
+  const coloredLawyers = lawyerList.map((lawyer) => ({
+    ...lawyer,
+    fill: getRandomColor(),
+  }));
 
   return (
     <div className="my-10 border rounded-2xl border-gray-300 p-6">
       <ResponsiveContainer width="100%" height={400}>
         <BarChart
-          data={lawyerList}
+          data={coloredLawyers}
           margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="Name" tick={renderCustomAxisTick} />
           <YAxis />
-          <Tooltip />
+          {/* Tooltip removed */}
           <Bar
             dataKey="ConsultationFee"
             fill="#8884d8"
             shape={<TriangleBar />}
-            barSize={50}
+            barSize={100}
+            isAnimationActive={false}
           />
         </BarChart>
       </ResponsiveContainer>

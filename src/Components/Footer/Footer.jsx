@@ -7,15 +7,14 @@ import Navbar from "../Navbar/Navbar";
 const Footer = () => {
   return (
     <div>
-      <Navbar />
       <footer className="footer footer-horizontal footer-center bg-base-200 text-base-content rounded p-10 mt-20 bg-black text-white">
-        <div className="flex">
-          <Link to={'/'}>
-            <Logo />
+        <div >
+          <Link to={'/'} className="flex items-center gap-2">
+          <img src="https://i.postimg.cc/pLjG5rMs/logo-footer.png" alt="" />
             <h1 className="text-2xl font-bold">Law.BD</h1>
           </Link>
         </div>
-        <nav className="grid grid-flow-col gap-4">
+        <nav className="grid grid-flow-col gap-4 border-b w-full border-gray-500 pb-2">
           <Navlinks />
         </nav>
         <nav>
@@ -56,7 +55,6 @@ const Footer = () => {
           </div>
         </nav>
       </footer>
-      <Footer />
     </div>
   );
 };

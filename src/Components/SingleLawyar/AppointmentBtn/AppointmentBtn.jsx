@@ -1,20 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { ToastContainer, toast } from 'react-toastify';
-import {
-  addToStoreDB,
-  getStoreLawyer
-} from "../../../Utility/addToDB";
+import { ToastContainer, toast } from "react-toastify";
+import { addToStoreDB, getStoreLawyer } from "../../../Utility/addToDB";
 import { useNavigate } from "react-router";
-
-
-
-
 
 const AppointmentBtn = ({ data }) => {
   const [isAdded, setIsAdded] = useState(false);
+  const today = new Date().toLocaleDateString("en-US", { weekday: "long" });
   const navigate = useNavigate();
 
-  const { Id , Name } = data;
+  const { Id, Name, AvailabilityDay } = data;
 
   useEffect(() => {
     const storLawyerData = getStoreLawyer();
@@ -27,15 +21,14 @@ const AppointmentBtn = ({ data }) => {
 
   const handleAppointment = () => {
     const storLawyerData = getStoreLawyer();
-    if(storLawyerData.includes(Id)){
+    if (storLawyerData.includes(Id)) {
       toast.warning(`${Name} is already scheduled.`);
-    }
-    else{
+    } else {
       addToStoreDB(Id);
       toast.success(`Appointment scheduled for ${Name} `);
       navigate("/mybookings");
     }
-    
+
     setIsAdded(!isAdded);
   };
 
@@ -46,23 +39,30 @@ const AppointmentBtn = ({ data }) => {
       </h1>
       <div className="flex justify-between py-3">
         <h1 className="font-bold">Availability: </h1>
-        <h1 className="bg-green-100 border border-green-300 px-4 py-1 rounded-2xl text-green-500">
-          Lawyer Available Today
-        </h1>
+        {AvailabilityDay.includes(today) ? (
+          <h1 className="bg-green-100 border border-green-300 px-4 py-1 rounded-2xl text-green-500">
+            Lawyer Available Today
+          </h1>
+        ) : (
+          <h1 className="bg-red-100 border border-red-300 px-4 py-1 rounded-2xl text-red-500">
+            Lawyer Not Available Today
+          </h1>
+        )}
       </div>
+
       <div className="border-t border-gray-300 mb-6"></div>
       <p className="text-left bg-amber-100 text-amber-500 inline px-5 rounded-3xl py-1">
         Due to high patient volume, we are currently accepting appointments for
         today only. We appreciate your understanding and cooperation.
       </p>
       <div className="mt-8  w-full">
-          <button
-            onClick={handleAppointment}
-            className="bg-green-500 text-white rounded-3xl mt-7 w-full py-2 px-6 font-bold cursor-pointer "
-          >
-            {/* {isAdded ? "Cancel Appointment" : "Book Appointment Now"} */}
-            Book Appointment Now
-          </button>
+        <button
+          onClick={handleAppointment}
+          className="bg-green-500 text-white rounded-3xl mt-7 w-full py-2 px-6 font-bold cursor-pointer "
+        >
+          {/* {isAdded ? "Cancel Appointment" : "Book Appointment Now"} */}
+          Book Appointment Now
+        </button>
       </div>
     </div>
   );
